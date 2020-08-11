@@ -1,35 +1,40 @@
-# sapper-template
+# sapper-prisma-template-rollup
 
-The default [Sapper](https://github.com/sveltejs/sapper) template, available for Rollup and webpack.
+This is Sapper template with Prisma 2
 
 
 ## Getting started
 
 
-### Using `degit`
+### Get this template
 
-[`degit`](https://github.com/Rich-Harris/degit) is a scaffolding tool that lets you create a directory from a branch in a repository. Use either the `rollup` or `webpack` branch in `sapper-template`:
-
+Clone this repository and install the dependencies:
 ```bash
-# for Rollup
-npx degit "sveltejs/sapper-template#rollup" my-app
-# for webpack
-npx degit "sveltejs/sapper-template#webpack" my-app
+cd sapper-prisma-template-rollup
+npm install # or yarn
 ```
 
 
-### Using GitHub templates
+### Setting up Prisma
 
-Alternatively, you can use GitHub's template feature with the [sapper-template-rollup](https://github.com/sveltejs/sapper-template-rollup) or [sapper-template-webpack](https://github.com/sveltejs/sapper-template-webpack) repositories.
+Migrate Prisma schema:
+```bash
+npx prisma migrate save --experimental
+npx prisma migrate up --experimental
+```
+
+Generate Prisma client:
+```bash
+npx prisma generate
+```
+
+#### PS: migrate schema and generate prisma client every time you made changes to schema
 
 
 ### Running the project
 
-However you get the code, you can install dependencies and run the project in development mode with:
-
+You can run the project after that with:
 ```bash
-cd my-app
-npm install # or yarn
 npm run dev
 ```
 
